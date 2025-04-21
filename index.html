@@ -1,0 +1,1387 @@
+
+Copy<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Creative Portfolio | Premium Visual Storytelling</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f11;
+            color: #f5f5f7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(32, 32, 36, 0.8) 0%, rgba(15, 15, 17, 1) 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            box-shadow: 0 0 15px rgba(131, 92, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        .animated-blur {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(131, 92, 246, 0.15) 0%, rgba(15, 15, 17, 0) 70%);
+            filter: blur(50px);
+            z-index: 0;
+        }
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .grid-pattern {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                             linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        .portfolio-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .portfolio-card:hover .card-overlay {
+            opacity: 1;
+        }
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        .portfolio-image {
+            transition: transform 0.5s ease;
+        }
+        .card-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .filter-button {
+            transition: all 0.3s ease;
+        }
+        .filter-button.active {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+        .experience-badge {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .about-image img {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .expertise-item .number {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .philosophy-quote {
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, #6366f1, #8b5cf6) 1;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+        }
+        .step-number {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .form-input {
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .form-input:focus {
+            border-color: #8b5cf6;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(131, 92, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="relative overflow-hidden hero-gradient grid-pattern">
+        <div class="noise-overlay"></div>
+        <div class="animated-blur top-20 left-20"></div>
+        <div class="animated-blur bottom-10 right-20"></div>
+        
+        <header class="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+            <div class="flex items-center">
+                <div class="w-10 h-10 mr-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">A</span>
+                </div>
+                <span class="font-semibold text-xl tracking-tight">ARTIFI</span>
+            </div>
+            <nav class="hidden md:flex space-x-10">
+                <a href="#work" class="transition duration-300 hover:text-purple-400">Work</a>
+                <a href="#about" class="transition duration-300 hover:text-purple-400">About</a>
+                <a href="#services" class="transition duration-300 hover:text-purple-400">Services</a>
+                <a href="#process" class="transition duration-300 hover:text-purple-400">Process</a>
+                <a href="#contact" class="transition duration-300 hover:text-purple-400">Contact</a>
+            </nav>
+            <button class="md:hidden focus:outline-none" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main class="container mx-auto px-6 relative z-10">
+            <section class="flex flex-col md:flex-row items-center py-20 md:py-32 gap-10">
+                <div class="w-full md:w-1/2 space-y-8">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tighter">
+                        <span class="accent-gradient">AI-Powered</span> Visual Storytelling
+                    </h1>
+                    <p class="text-xl md:text-2xl font-light text-gray-300 leading-relaxed">
+                        Where cutting-edge AI meets creative vision to transform your brand's visual presence.
+                    </p>
+                    <p class="text-gray-400 text-lg max-w-lg">
+                        I leverage advanced AI technologies and human creativity to design compelling visual narratives that capture attention and drive engagement in today's digital landscape.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#work" class="cta-button px-8 py-4 rounded-lg font-medium text-white text-center">
+                            Explore My Work
+                        </a>
+                        <a href="#contact" class="px-8 py-4 rounded-lg font-medium border border-gray-700 hover:border-purple-500 transition-colors duration-300 text-center">
+                            Let's Talk
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap gap-8 pt-12">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-purple-500 mr-2"></i>
+                            <span class="text-gray-300">Creative Excellence</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-robot text-purple-500 mr-2"></i>
+                            <span class="text-gray-300">AI Expertise</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-line text-purple-500 mr-2"></i>
+                            <span class="text-gray-300">Results-Driven</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 relative">
+                    <div class="relative rounded-lg overflow-hidden shadow-2xl border border-gray-800">
+                        <video autoplay loop muted playsinline class="w-full h-auto" poster="ComfyUI_00193_.jpg">
+                            <source src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-creative-reel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            <span class="text-purple-400">Midjourney</span> + <span class="text-indigo-400">Final Cut Pro</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg p-4 shadow-xl">
+                        <div class="text-white text-sm font-medium">Recent client project:</div>
+                        <div class="text-white font-bold">4.3x Engagement Increase</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-10 flex items-center justify-between flex-wrap gap-8 border-t border-gray-800 text-gray-400">
+                <div class="text-sm">Trusted by innovative brands worldwide</div>
+                <div class="flex flex-wrap gap-10 items-center">
+                    <span class="font-medium text-gray-300">TechVision</span>
+                    <span class="font-medium text-gray-300">Altitude</span>
+                    <span class="font-medium text-gray-300">NexaLabs</span>
+                    <span class="font-medium text-gray-300">Empyreal</span>
+                    <span class="font-medium text-gray-300">QuantumShift</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="py-24 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="noise-overlay"></div>
+            <div class="animated-blur top-10 left-1/3"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Featured <span class="accent-gradient">AI-Powered</span> Work
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Explore my latest projects showcasing the fusion of cutting-edge AI technologies and creative direction to deliver standout visual experiences.
+                </p>
+            </div>
+            
+            <!-- Filter Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-button active px-6 py-2 rounded-full text-sm font-medium">
+                    All Work
+                </button>
+                <button class="filter-button px-6 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700">
+                    Visual Advertising
+                </button>
+                <button class="filter-button px-6 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700">
+                    Short-Form Video
+                </button>
+                <button class="filter-button px-6 py-2 rounded-full text-sm font-medium bg-gray-800 hover:bg-gray-700">
+                    Brand Identity
+                </button>
+            </div>
+            
+
+
+                
+                <!-- Project Card 2 -->
+                <div class="portfolio-card rounded-xl overflow-hidden bg-gray-900 shadow-lg border border-gray-800">
+                    <div class="relative h-64 overflow-hidden">
+                        <video controls playsinline webkit-playsinline class="w-full h-full object-cover portfolio-image" poster="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-product-video-poster.jpg">
+                            <source src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-product-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            Short-Form Video
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">NexGen Product Launch</h3>
+                        <p class="text-gray-400 mb-4">A 15-second teaser that generated buzz and anticipation for a tech product launch.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded">Runway</span>
+                                <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Final Cut Pro</span>
+                            </div>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                View Case Study
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="portfolio-card rounded-xl overflow-hidden bg-gray-900 shadow-lg border border-gray-800">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-brand-identity.jpg" alt="Brand Identity System" class="w-full h-full object-cover portfolio-image">
+                        <div class="card-overlay absolute inset-0"></div>
+                        <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            Brand Identity
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Quantum Brand Evolution</h3>
+                        <p class="text-gray-400 mb-4">A complete visual identity system that transformed a startup's market positioning.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded">DALL-E</span>
+                                <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Illustrator</span>
+                            </div>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                View Case Study
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="portfolio-card rounded-xl overflow-hidden bg-gray-900 shadow-lg border border-gray-800">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-social-campaign.jpg" alt="Social Media Campaign" class="w-full h-full object-cover portfolio-image">
+                        <div class="card-overlay absolute inset-0"></div>
+                        <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            Visual Advertising
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Amplify Social Campaign</h3>
+                        <p class="text-gray-400 mb-4">A series of scroll-stopping visuals that increased click-through rates by 52%.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded">Midjourney</span>
+                                <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">After Effects</span>
+                            </div>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                View Case Study
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="portfolio-card rounded-xl overflow-hidden bg-gray-900 shadow-lg border border-gray-800">
+                    <div class="relative h-64 overflow-hidden">
+                        <video controls playsinline webkit-playsinline class="w-full h-full object-cover portfolio-image" poster="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-commercial-poster.jpg">
+                            <source src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-commercial.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            Short-Form Video
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Horizon Commercial</h3>
+                        <p class="text-gray-400 mb-4">A 30-second commercial that blends AI-generated visuals with cinematic storytelling.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded">Runway</span>
+                                <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Final Cut Pro</span>
+                            </div>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                View Case Study
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 6 -->
+                <div class="portfolio-card rounded-xl overflow-hidden bg-gray-900 shadow-lg border border-gray-800">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-packaging-design.jpg" alt="Product Packaging Design" class="w-full h-full object-cover portfolio-image">
+                        <div class="card-overlay absolute inset-0"></div>
+                        <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs">
+                            Brand Identity
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Elysium Packaging Design</h3>
+                        <p class="text-gray-400 mb-4">An award-winning packaging concept that reinvented a traditional product category.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded">DALL-E</span>
+                                <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Photoshop</span>
+                            </div>
+                            <a href="#" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                View Case Study
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="cta-button inline-block px-8 py-4 rounded-lg font-medium text-white">
+                    View All Projects
+                </a>
+            </div>
+            
+            <div class="mt-24 border-t border-gray-800 pt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-6">
+                    <div class="text-purple-500 text-4xl font-bold mb-2">50+</div>
+                    <div class="text-xl font-medium mb-2">Client Projects</div>
+                    <p class="text-gray-400">Successful campaigns delivered for leading brands across industries</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-purple-500 text-4xl font-bold mb-2">3+</div>
+                    <div class="text-xl font-medium mb-2">Years Experience</div>
+                    <p class="text-gray-400">Pioneering AI-powered creative work since the beginning</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-purple-500 text-4xl font-bold mb-2">40%</div>
+                    <div class="text-xl font-medium mb-2">Avg. Engagement Lift</div>
+                    <p class="text-gray-400">Measurable results that exceed industry benchmarks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative overflow-hidden bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="noise-overlay"></div>
+            <div class="animated-blur top-1/4 right-1/4"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    About <span class="accent-gradient">Me</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Creative Director & AI Visual Specialist
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-2/5">
+                    <div class="relative">
+                        <div class="rounded-xl overflow-hidden border-2 border-gray-800">
+                            <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/creative-director-portrait.jpg" alt="AI Creative Director" class="w-full h-auto">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 experience-badge text-white p-5 rounded-full h-28 w-28 flex flex-col justify-center items-center">
+                            <span class="text-3xl font-bold">5+</span>
+                            <span class="text-xs font-medium text-center">Years in Creative Tech</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-3/5 space-y-6">
+                    <p class="text-xl text-purple-400 font-medium leading-relaxed">
+                        I combine traditional design expertise with cutting-edge AI technology to create visual stories that capture attention and drive engagement in today's crowded digital landscape.
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        My journey began in traditional graphic design, where I honed my eye for composition, color theory, and visual storytelling. As AI tools like Midjourney and Runway emerged, I recognized their potential to transform creative work and dedicated myself to mastering these technologies.
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        What sets my approach apart is the balance between technological innovation and human creativity. I don't just prompt AI tools—I direct them with purpose, refining outputs through an iterative process until they achieve the perfect blend of originality and strategic alignment with your brand objectives.
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        Beyond surface-level AI image generation, I've developed advanced techniques that combine outputs from multiple AI systems—using Midjourney's compositional strength, enhancing details with DALL-E, and finalizing with traditional editing in Photoshop and Final Cut Pro to achieve results that stand apart from standard AI-generated content.
+                    </p>
+                    
+                    <blockquote class="philosophy-quote pl-6 py-2 text-xl italic text-gray-300 my-8">
+                        "I believe AI isn't replacing creativity—it's expanding what's possible when guided by experienced creative vision."
+                    </blockquote>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
+                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700 text-center">
+                            <div class="text-4xl font-bold mb-2 expertise-item">
+                                <span class="number">100+</span>
+                            </div>
+                            <div class="text-gray-300">Projects Completed</div>
+                        </div>
+                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700 text-center">
+                            <div class="text-4xl font-bold mb-2 expertise-item">
+                                <span class="number">35+</span>
+                            </div>
+                            <div class="text-gray-300">Satisfied Clients</div>
+                        </div>
+                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700 text-center">
+                            <div class="text-4xl font-bold mb-2 expertise-item">
+                                <span class="number">3</span>
+                            </div>
+                            <div class="text-gray-300">Industry Awards</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <a href="#contact" class="cta-button px-8 py-4 rounded-lg font-medium text-white text-center">
+                            Let's Connect
+                        </a>
+                        <a href="#services" class="px-8 py-4 rounded-lg font-medium border border-gray-700 hover:border-purple-500 transition-colors duration-300 text-center">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-900/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-lightbulb text-purple-500 text-xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Creative Vision</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        A strategic approach to visual storytelling that balances aesthetic innovation with marketing objectives.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code-branch text-purple-500 text-xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Technical Mastery</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Advanced prompt engineering and multi-tool workflow expertise to create unique, high-quality assets.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bullseye text-purple-500 text-xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Results Focused</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Creating visuals that don't just look impressive but deliver measurable engagement and conversion improvements.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900/80 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-purple-500 text-xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Client Partnership</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        A collaborative approach that values your input and makes the creative process transparent and enjoyable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-gray-900 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="noise-overlay"></div>
+            <div class="animated-blur bottom-10 left-1/4"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    My <span class="accent-gradient">Services</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Specialized offerings that leverage AI technology to transform your brand's visual presence and engagement.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-palette text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">AI-Powered Visual Ad Creation</h3>
+                        <p class="text-gray-400 mb-6">
+                            Transform your advertising with stunning visuals generated through advanced AI tools. I create scroll-stopping imagery that captures attention and communicates your message with unprecedented visual impact.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Brand-aligned AI visual development</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Multi-format ad creative packages</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Platform-optimized visual assets</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Performance-focused creative testing</span>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded mr-2">Midjourney</span>
+                                    <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">DALL-E</span>
+                                </div>
+                                <a href="#contact" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                    Learn More
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-film text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Short-Form Video Production</h3>
+                        <p class="text-gray-400 mb-6">
+                            Engaging, shareable video content optimized for today's platforms. Using a combination of AI generation tools and professional editing, I create videos that deliver your message in seconds while maintaining viewer attention.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">AI-enhanced video narratives</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Platform-specific video formats</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Attention-optimized storytelling</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Brand identity integration</span>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded mr-2">Runway</span>
+                                    <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Final Cut Pro</span>
+                                </div>
+                                <a href="#contact" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                    Learn More
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-bezier-curve text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">AI-Enhanced Branding</h3>
+                        <p class="text-gray-400 mb-6">
+                            Comprehensive visual identity systems that leverage AI to explore new creative territories. From logo variations to complete visual languages, I help brands stand out with cohesive, forward-thinking visual assets.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">AI-driven brand exploration</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Visual identity development</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Brand asset creation systems</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300">Brand guidelines documentation</span>
+                            </div>
+                        </div>
+                        <div class="pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="bg-indigo-900/30 text-indigo-400 text-xs px-2 py-1 rounded mr-2">Midjourney</span>
+                                    <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded">Illustrator</span>
+                                </div>
+                                <a href="#contact" class="text-purple-400 hover:text-purple-300 flex items-center text-sm font-medium">
+                                    Learn More
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Service Information -->
+            <div class="bg-black/30 rounded-xl p-8 border border-gray-800 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="w-full md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Custom Project Requirements?</h3>
+                        <p class="text-gray-300 mb-6">
+                            Beyond these core services, I'm available for custom AI-powered creative projects tailored to your specific needs. Whether you need a unique visual treatment, experimental AI approach, or specialized creative solution, let's discuss how we can collaborate.
+                        </p>
+                        <div class="flex items-center text-purple-400">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>hello@artifi-creative.com</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 flex justify-center md:justify-end">
+                        <a href="#contact" class="cta-button px-8 py-4 rounded-lg font-medium text-white text-center w-full md:w-auto">
+                            Discuss Your Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Approach -->
+            <div class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">My Approach to <span class="accent-gradient">AI-Powered</span> Creative</h3>
+                    <p class="text-gray-300 mb-6">
+                        I approach each project with a unique methodology that combines strategic planning, creative exploration, and technical execution to deliver exceptional AI-enhanced visuals.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Strategic Foundation</h4>
+                                <p class="text-gray-400">
+                                    Every project begins with understanding your brand, audience, and objectives to establish a clear creative direction.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-wand-magic-sparkles text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Creative AI Direction</h4>
+                                <p class="text-gray-400">
+                                    I don't just use AI tools—I direct them with purpose, using advanced prompting techniques and creative guidance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-layer-group text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Iterative Refinement</h4>
+                                <p class="text-gray-400">
+                                    Through a careful process of iteration and enhancement, I refine AI outputs until they achieve the perfect visual impact.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-xl overflow-hidden border-2 border-gray-800">
+                        <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/ai-workflow-visualization.jpg" alt="AI Creative Workflow" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-black/70 backdrop-blur-sm p-4 rounded-lg border border-gray-700">
+                        <div class="text-sm text-gray-400">Client feedback:</div>
+                        <div class="text-white font-medium">"A transformative creative process"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="noise-overlay"></div>
+            <div class="animated-blur top-1/3 right-1/3"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    My Creative <span class="accent-gradient">Process</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    A structured methodology that ensures exceptional creative outcomes and a smooth client experience.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Vertical timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-indigo-500 to-purple-600 hidden md:block"></div>
+                
+                <!-- Process Steps -->
+                <div class="space-y-16 relative">
+                    <!-- Step 1 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="w-full md:w-1/2 md:text-right order-2 md:order-1">
+                            <h3 class="text-2xl font-bold mb-4">Discovery</h3>
+                            <p class="text-gray-300 mb-4">
+                                Our journey begins with a comprehensive exploration of your brand, objectives, and audience. I'll work closely with you to understand your vision and the specific challenges you're looking to address.
+                            </p>
+                            <div class="bg-gray-800/30 backdrop-blur-sm p-4 rounded-lg border border-gray-700 inline-block">
+                                <div class="flex items-center justify-end">
+                                    <i class="fas fa-file-contract text-purple-400 mr-2"></i>
+                                    <span class="text-gray-300">Detailed Project Brief</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center step-number">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1 md:order-2">
+                            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                                <div class="flex md:hidden items-center mb-4">
+                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">1</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Discovery</h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Brand immersion session</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Competitor analysis</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Goal definition workshop</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="w-full md:w-1/2 order-2">
+                            <h3 class="text-2xl font-bold mb-4">Concept Development</h3>
+                            <p class="text-gray-300 mb-4">
+                                Using AI tools as creative partners, I'll explore multiple creative directions that align with your brand and objectives. This phase is about pushing boundaries while staying strategically focused.
+                            </p>
+                            <div class="bg-gray-800/30 backdrop-blur-sm p-4 rounded-lg border border-gray-700 inline-block">
+                                <div class="flex items-center">
+                                    <i class="fas fa-lightbulb text-purple-400 mr-2"></i>
+                                    <span class="text-gray-300">Creative Direction Concepts</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center step-number">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1">
+                            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                                <div class="flex md:hidden items-center mb-4">
+                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">2</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Concept Development</h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">AI prompt engineering</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Multiple creative directions</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Initial concept presentation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="w-full md:w-1/2 md:text-right order-2 md:order-1">
+                            <h3 class="text-2xl font-bold mb-4">Refinement</h3>
+                            <p class="text-gray-300 mb-4">
+                                Based on your feedback, I'll refine the selected concept, iteratively enhancing the AI-generated outputs and adding human creative direction to achieve the perfect visual approach.
+                            </p>
+                            <div class="bg-gray-800/30 backdrop-blur-sm p-4 rounded-lg border border-gray-700 inline-block">
+                                <div class="flex items-center justify-end">
+                                    <i class="fas fa-sliders text-purple-400 mr-2"></i>
+                                    <span class="text-gray-300">Iterative Enhancement</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center step-number">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1 md:order-2">
+                            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                                <div class="flex md:hidden items-center mb-4">
+                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">3</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Refinement</h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Client feedback integration</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Advanced AI refinement</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Detail enhancement techniques</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="w-full md:w-1/2 order-2">
+                            <h3 class="text-2xl font-bold mb-4">Production</h3>
+                            <p class="text-gray-300 mb-4">
+                                Once the creative direction is approved, I'll produce the full set of deliverables, ensuring consistent quality and attention to detail across all assets. This includes final AI rendering, editing, and post-processing.
+                            </p>
+                            <div class="bg-gray-800/30 backdrop-blur-sm p-4 rounded-lg border border-gray-700 inline-block">
+                                <div class="flex items-center">
+                                    <i class="fas fa-industry text-purple-400 mr-2"></i>
+                                    <span class="text-gray-300">Full Asset Creation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center step-number">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1">
+                            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                                <div class="flex md:hidden items-center mb-4">
+                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">4</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Production</h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Final AI asset generation</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Professional post-processing</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Format adaptation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-center gap-8">
+                        <div class="w-full md:w-1/2 md:text-right order-2 md:order-1">
+                            <h3 class="text-2xl font-bold mb-4">Delivery & Support</h3>
+                            <p class="text-gray-300 mb-4">
+                                I'll deliver all final assets in the required formats along with implementation guidance as needed. Post-delivery support ensures you can effectively use the AI-generated creative to achieve your goals.
+                            </p>
+                            <div class="bg-gray-800/30 backdrop-blur-sm p-4 rounded-lg border border-gray-700 inline-block">
+                                <div class="flex items-center justify-end">
+                                    <i class="fas fa-rocket text-purple-400 mr-2"></i>
+                                    <span class="text-gray-300">Launch Ready Assets</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center step-number">
+                                <span class="text-white font-bold">5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1 md:order-2">
+                            <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800">
+                                <div class="flex md:hidden items-center mb-4">
+                                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mr-3">
+                                        <span class="text-white font-bold">5</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold">Delivery & Support</h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Comprehensive asset delivery</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Implementation guidance</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-check text-purple-400 mt-1 mr-3"></i>
+                                        <span class="text-gray-300">Post-project support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Process CTA -->
+            <div class="mt-20 text-center">
+                <h3 class="text-2xl font-bold mb-6">Ready to transform your brand's visual presence?</h3>
+                <a href="#contact" class="cta-button inline-block px-8 py-4 rounded-lg font-medium text-white">
+                    Start Your Project
+                </a>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="mt-24 pt-16 border-t border-gray-800">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Client <span class="accent-gradient">Testimonials</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Here's what clients say about their experience working with me on AI-powered creative projects.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800 relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-purple-500 opacity-30">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6 relative z-10">
+                            "Working with ARTIFI transformed our campaign approach completely. The AI-generated visuals were unlike anything we'd seen before, delivering engagement metrics that exceeded our expectations by over 40%."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/testimonial-avatar-1.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Sarah J.</h4>
+                                <p class="text-gray-400 text-sm">Marketing Director, TechVision</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800 relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-purple-500 opacity-30">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6 relative z-10">
+                            "The creative process was transparent and collaborative from start to finish. What impressed me most was how the AI visuals were perfectly aligned with our brand while pushing creative boundaries."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/testimonial-avatar-2.jpg" alt="Mark T." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Mark T.</h4>
+                                <p class="text-gray-400 text-sm">Brand Manager, Altitude</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800 relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-purple-500 opacity-30">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6 relative z-10">
+                            "Our product launch videos generated more organic sharing than any previous campaign. The AI-powered visuals created a sense of wonder that perfectly complemented our innovative product."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://cdn.jsdelivr.net/gh/Aetrance/placeholder/testimonial-avatar-3.jpg" alt="Elena R." class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Elena R.</h4>
+                                <p class="text-gray-400 text-sm">Product Lead, NexaLabs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="noise-overlay"></div>
+            <div class="animated-blur bottom-20 right-1/4"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Let's Create <span class="accent-gradient">Something Remarkable</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Ready to elevate your brand's visual presence with AI-powered creative? Get in touch to discuss your project.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2">
+                    <form class="bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-300 mb-2 font-medium">Name</label>
+                            <input type="text" id="name" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-300 mb-2 font-medium">Email</label>
+                            <input type="email" id="email" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="Your email address">
+                        </div>
+                        <div class="mb-6">
+                            <label for="company" class="block text-gray-300 mb-2 font-medium">Company</label>
+                            <input type="text" id="company" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="Your company name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="project" class="block text-gray-300 mb-2 font-medium">Project Details</label>
+                            <textarea id="project" rows="5" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white" placeholder="Tell me about your project and goals"></textarea>
+                        </div>
+                        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="budget" class="block text-gray-300 mb-2 font-medium">Budget Range</label>
+                                <select id="budget" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white bg-transparent">
+                                    <option value="" class="bg-gray-800">Select a range</option>
+                                    <option value="2-5k" class="bg-gray-800">$2,000 - $5,000</option>
+                                    <option value="5-10k" class="bg-gray-800">$5,000 - $10,000</option>
+                                    <option value="10k+" class="bg-gray-800">$10,000+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="timeline" class="block text-gray-300 mb-2 font-medium">Timeline</label>
+                                <select id="timeline" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none text-white bg-transparent">
+                                    <option value="" class="bg-gray-800">Select timeline</option>
+                                    <option value="urgent" class="bg-gray-800">Urgent (1-2 weeks)</option>
+                                    <option value="standard" class="bg-gray-800">Standard (3-4 weeks)</option>
+                                    <option value="flexible" class="bg-gray-800">Flexible (5+ weeks)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="cta-button w-full py-4 rounded-lg font-medium text-white">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="w-full lg:w-1/2 space-y-8">
+                    <div class="bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold mb-6">Alternative Ways to Connect</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="text-gray-300">hello@artifi-creative.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-calendar-alt text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Schedule a Call</h4>
+                                    <p class="text-gray-300 mb-2">Book a 30-minute discovery call to discuss your project.</p>
+                                    <a href="#" class="inline-block px-4 py-2 rounded border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white transition-colors duration-300 text-sm font-medium">
+                                        View Calendar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Location</h4>
+                                    <p class="text-gray-300">Working remotely worldwide, based in San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900/30 backdrop-blur-sm p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold mb-6">Follow My Creative Journey</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center hover:bg-indigo-500 transition-colors duration-300">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center hover:bg-indigo-500 transition-colors duration-300">
+                                <i class="fab fa-behance text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center hover:bg-indigo-500 transition-colors duration-300">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center hover:bg-indigo-500 transition-colors duration-300">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center hover:bg-indigo-500 transition-colors duration-300">
+                                <i class="fab fa-dribbble text-white"></i>
+                            </a>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-gray-700">
+                            <h4 class="font-bold mb-4">Latest News</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 rounded bg-indigo-900/30 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-award text-purple-400 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">
+                                        Received the 2023 Innovation in AI Design Award for the Quantum Brand project.
+                                    </p>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 rounded bg-indigo-900/30 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-microphone-alt text-purple-400 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">
+                                        Speaking at the upcoming AI Creative Summit on "The Future of Visual Storytelling."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-black relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 mr-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">A</span>
+                        </div>
+                        <span class="font-semibold text-xl tracking-tight">ARTIFI</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Transforming brands through AI-powered visual creativity. Where cutting-edge technology meets strategic creative direction.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#work" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Work</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Services</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Process</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">AI Visual Advertising</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Short-Form Video</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Creative Direction</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">Custom Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2023 ARTIFI Creative. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-300 text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle
+        const menuButton = document.querySelector('button[aria-label="Menu"]');
+        const nav = document.querySelector('nav');
+        
+        menuButton.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-20');
+            nav.classList.toggle('right-6');
+            nav.classList.toggle('bg-gray-900');
+            nav.classList.toggle('p-6');
+            nav.classList.toggle('rounded-lg');
+            nav.classList.toggle('shadow-xl');
+            nav.classList.toggle('border');
+            nav.classList.toggle('border-gray-800');
+            nav.classList.toggle('space-x-0');
+            nav.classList.toggle('space-y-4');
+        });
+        
+        // Portfolio filter functionality
+        const filterButtons = document.querySelectorAll('.filter-button');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter logic would go here in a real implementation
+            });
+        });
+    </script>
+</body>
+</html>
